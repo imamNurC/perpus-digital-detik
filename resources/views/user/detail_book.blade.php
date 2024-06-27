@@ -20,7 +20,8 @@
 
         <!-- Tambahkan tombol untuk mengekspor PDF -->
         <a href="{{ route('exportPdf', ['id' => $book->id]) }}" class="btn btn-primary">Export as PDF</a>
-        <button type="button" onclick="window.location.href='{{ route('listBooks') }}'">Kembali ke daftar</button>
+        <a href="{{ route('listBooks') }}" class="btn btn-danger">Kembali ke daftar</a>
+        <!-- <button type="button" onclick="window.location.href='{{ route('listBooks') }}'">Kembali ke daftar</button> -->
 
     </div>
 @endsection

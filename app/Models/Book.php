@@ -20,7 +20,7 @@ class Book extends Model
     ];
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class); // karena Book model di panggil hasMany di user, pasangan nya belongsTo ke model yang memanggil
     }
 
     public function category()

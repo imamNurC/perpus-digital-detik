@@ -39,17 +39,17 @@ class CategoryController extends Controller
     }
 
     public function deleteBookCategory(int $id): RedirectResponse
-{
-    // Find the category by ID and delete it
-    $category = Category::find($id);
+    {
+        // Find the category by ID and delete it
+        $category = Category::find($id);
 
-    if ($category) {
-        $category->delete();
-        return redirect()->route('categories')->with('status', 'Category deleted successfully!');
-    } else {
-        return redirect()->route('categories')->with('error', 'Category not found!');
+        if ($category) {
+            $category->delete();
+            return redirect()->route('categories')->with('status', 'Category deleted successfully!');
+        } else {
+            return redirect()->route('categories')->with('error', 'Category not found!');
+        }
     }
-}
 
     public function editBookCategoryForm(int $id): View
     {
@@ -81,7 +81,4 @@ class CategoryController extends Controller
             return redirect()->route('categories')->with('error', 'Category not found!');
         }
     }
-
-
-
 }

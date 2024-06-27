@@ -26,10 +26,16 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {        //nama Fungsi           //nama Routes yang akan di trigger di view
     Route::get('/list-books', [UserController::class, 'listBooks'])->name('listBooks');
     Route::get('/tambah-buku', [UserController::class, 'createBookForm'])->name('createBook');
     Route::post('/tambah-buku', [UserController::class, 'storeBook'])->name('storeBook');
+    Route::get('/dashboard', function(){
+        return view('dashboard.index');
+    })->name('dash');
+
+
+
     Route::get('/list-books/{kategori?}', [UserController::class, 'listBooks'])->name('listBooks');
     Route::delete('/delete-book/{id}', [UserController::class, 'deleteBook'])->name('deleteBook');
     Route::get('/edit-book/{id}', [UserController::class, 'editBookForm'])->name('editBookForm');

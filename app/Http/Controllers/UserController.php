@@ -43,10 +43,9 @@ class UserController extends Controller
         }
 
         $books = $query->get();
-
-        return view('user.list_books', compact('books', 'categories'));
+                                                        
+        return view('dashboard.index', compact('books', 'categories'));
     }
-
 
 
 
@@ -85,6 +84,9 @@ class UserController extends Controller
             'cover_image_path' => $coverImagePath,
             'user_id' => Auth::id(), // Get the authenticated user's ID
         ]);
+
+        // $data = Book::create();
+        // echo $data;
 
         return redirect()->route('listBooks')->with('status', 'Book added successfully!');
     }

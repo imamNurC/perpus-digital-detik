@@ -48,6 +48,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary">Add Book</button>
+                            <!-- <a href="{{ route('listBooks') }}" class="btn btn-danger">Add book</a> -->
                             <button type="button" class="btn btn-danger" onclick="window.location.href='{{ route('listBooks') }}'">Kembali ke daftar</button>
 
                             

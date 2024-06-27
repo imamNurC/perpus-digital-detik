@@ -15,15 +15,15 @@
     <button type="button" onclick="filterByCategory()">Filter</button>
 
 
-    <table>
+    <table class="table table-striped table-sm">
         <thead>
             <tr>
-                <th>Cover Buku |</th>
-                <th>Judul Buku |</th>
-                <th>Kategori   |</th>
-                <th>Deskripsi  |</th>
-                <th>Jumlah     |</th>
-                <th>Action     |</th>
+                <th scope="col">Cover Buku  </th>
+                <th scope="col">Judul Buku </th>
+                <th scope="col">Kategori   </th>
+                <th scope="col">Deskripsi  </th>
+                <th scope="col">Jumlah     </th>
+                <th scope="col">Action     </th>
             </tr>
         </thead>
         <tbody>
@@ -36,14 +36,10 @@
                     <td>{{ $buku->quantity }}</td>
                     <td>
                         <a href="{{ route('detailBook', ['id' => $buku->id]) }}" class="btn btn-info">Detail</a>
-                    </td>
-                    <td>
-                        <!-- Tambahkan tombol Delete dengan memanggil fungsi deleteBook -->
                         <button class="btn btn-danger"  onclick="deleteBook({{ $buku->id }})">Delete</button>
-                    </td>
-                    <td>
                         <a href="{{ route('editBookForm', ['id' => $buku->id]) }}" class="btn btn-success">Edit</a>
                     </td>
+                    
                 </tr>
             @endforeach
         
