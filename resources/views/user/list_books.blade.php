@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Daftar Buku</h1>
+    <h1>Daftar Buku, {{ auth()->user()->name }}</h1>
 
     <label for="kategori">Filter Kategori:</label>
     <select name="kategori" id="kategori">
@@ -14,9 +14,10 @@
     </select>
     <button type="button" onclick="filterByCategory()">Filter</button>
 
-
-    <table class="table table-striped table-sm">
-        <thead>
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
             <tr>
                 <th scope="col">Cover Buku  </th>
                 <th scope="col">Judul Buku </th>
@@ -42,10 +43,11 @@
                     
                 </tr>
             @endforeach
-        
+            
             <button type="submit" class="btn btn-primary" onclick="window.location.href='{{ route('createBook') }}'">Tambah List buku</button>
             <button type="submit" class="btn btn-secondary" onclick="window.location.href='{{ route('categories') }}'">Master Data Kategori buku</button>
-
+            <br>
+            <br>
         </tbody>
         
     </table>

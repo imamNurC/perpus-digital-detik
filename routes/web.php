@@ -30,9 +30,7 @@ Route::middleware(['auth'])->group(function () {        //nama Fungsi           
     Route::get('/list-books', [UserController::class, 'listBooks'])->name('listBooks');
     Route::get('/tambah-buku', [UserController::class, 'createBookForm'])->name('createBook');
     Route::post('/tambah-buku', [UserController::class, 'storeBook'])->name('storeBook');
-    Route::get('/dashboard', function(){
-        return view('dashboard.index');
-    })->name('dash');
+    Route::get('/dashboard', [UserController::class, 'DashboardlistBooks'])->name('dash');
 
 
 

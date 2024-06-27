@@ -44,6 +44,30 @@ class UserController extends Controller
 
         $books = $query->get();
                                                         
+        return view('user.list_books', compact('books', 'categories'));
+    }
+
+    public function DashboardlistBooks(Request $request, $selectedCategory = null): View
+    {
+        $categories = DB::table('categories')->get();
+        $query = Book::query();
+
+        // Memeriksa apakah ada pengguna yang terautentikasi
+        if (auth()->check()) {
+            // Jika pengguna adalah admin, maka tidak perlu menyaring berdasarkan user_id
+            if (auth()->user()->type != 'admin') {
+                // Jika bukan admin, hanya menampilkan buku yang dimiliki oleh user yang sedang login
+                $query->where('user_id', Auth::id());
+            }
+        }
+
+        // Menyaring berdasarkan kategori jika kategori dipilih
+        if ($selectedCategory) {
+            $query->where('category_id', $selectedCategory);
+        }
+
+        $books = $query->get();
+                                                        
         return view('dashboard.index', compact('books', 'categories'));
     }
 

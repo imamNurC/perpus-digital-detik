@@ -266,18 +266,10 @@
 
       <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
-      <h2>Section title</h2>
+      <h2>Dashboard Monitoring Analytics</h2>
       <div class="table-responsive small">
       
-      <label for="kategori">Filter Kategori:</label>
-        <select name="kategori" id="kategori">
-            <option value="">Semua Kategori</option>
-            @foreach($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->nama_category }}</option>
-            @endforeach
-        </select>
-        <button type="button" onclick="filterByCategory()">Filter</button>
-
+  
 
         <table class="table table-striped table-sm">
             <thead>
@@ -287,7 +279,7 @@
                     <th scope="col">Kategori   </th>
                     <th scope="col">Deskripsi  </th>
                     <th scope="col">Jumlah     </th>
-                    <th scope="col">Action     </th>
+                    <!-- <th scope="col">Action     </th> -->
                 </tr>
             </thead>
             <tbody>
@@ -298,17 +290,17 @@
                         <td>{{ $buku->category ? $buku->category->nama_category : 'Tidak ada kategori' }}</td>
                         <td>{{ $buku->description }}</td>
                         <td>{{ $buku->quantity }}</td>
-                        <td>
+                        <!-- <td>
                             <a href="{{ route('detailBook', ['id' => $buku->id]) }}" class="btn btn-info">Detail</a>
                             <button class="btn btn-danger"  onclick="deleteBook({{ $buku->id }})">Delete</button>
                             <a href="{{ route('editBookForm', ['id' => $buku->id]) }}" class="btn btn-success">Edit</a>
-                        </td>
+                        </td> -->
                         
                     </tr>
                 @endforeach
             
-                <button type="submit" class="btn btn-primary" onclick="window.location.href='{{ route('createBook') }}'">Tambah List buku</button>
-                <button type="submit" class="btn btn-secondary" onclick="window.location.href='{{ route('categories') }}'">Master Data Kategori buku</button>
+                <button type="submit" class="btn btn-danger" onclick="window.location.href='{{ route('listBooks') }}'">Back</button>
+                <!-- <button type="submit" class="btn btn-secondary" onclick="window.location.href='{{ route('categories') }}'">Master Data Kategori buku</button> -->
 
             </tbody>
             

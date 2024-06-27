@@ -47,7 +47,7 @@
                             @endif
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('listBooks') }}">{{ __('Home') }}</a>
+                                <a class="nav-link" href="{{ route('listBooks') }}">{{ __('Feed') }}</a>
                             </li>
 
                         @endauth
